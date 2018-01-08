@@ -10,7 +10,6 @@ pip install -r requirement.txt
 2.run run.py code using virtualenv python.  
 ```
 cd my_spider
-mkdir out
 python run.py
 ```
 
