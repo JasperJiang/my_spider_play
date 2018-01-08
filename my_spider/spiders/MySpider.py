@@ -16,9 +16,16 @@ class MyspiderSpider(scrapy.Spider):
             appItem['image_urls'] = div.xpath('a/img/@src').extract_first()
             appItem['name'] = div.xpath('a/@title').extract_first()
             appItem['url'] = div.xpath('a/@href').extract_first()
+            appItem = scrapy.Request(appItem['url'],callback=self.appVersionSearch, meta={'appItem': appItem})
             yield appItem
+
 
         next_url = response.xpath('//ol[@class="page-navigator"]/li[@class="next"]/a/@href').extract_first()
         print("spiding:"+response.url)
         request = scrapy.Request(next_url, callback=self.parse)
         yield request
+
+    def appVersionSearch(self, response):
+        appItem = response.meta['appItem']
+        appItem['version'] = response.xpath('//div[@class="history_version"]/table/tbody/tr/td[@class="version_num"]/text()').extract_first()
+        return appItem

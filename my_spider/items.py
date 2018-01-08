@@ -17,5 +17,6 @@ class AppItem(scrapy.Item):
     url = scrapy.Field()
     name = scrapy.Field()
     image_urls = scrapy.Field()
+    version = scrapy.Field()
 
 

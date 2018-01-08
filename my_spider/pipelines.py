@@ -8,12 +8,11 @@ import json
 
 
 class MySpiderPipeline(object):
-
     def __init__(self):
-        self.fs = open('out/items.txt','w',encoding='utf-8')
+        self.fs = open('out/items.txt', 'w', encoding='utf-8')
 
     def process_item(self, item, spider):
-        self.fs.write(str(dict(item))+"\n")
+        self.fs.write(str(dict(item)) + "\n")
         return item
 
     def close_spider(self, spider):
