@@ -1,6 +1,6 @@
 # my_spider_play
 1.env install.  
-use python 3.5  
+use python 3 or higher
 ```
 virtualenv virtualenv
 source virtualenv/bin/activate
