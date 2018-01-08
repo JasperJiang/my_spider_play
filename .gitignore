@@ -108,4 +108,4 @@ ENV/
 # Rope project settings
 .ropeproject
 
-out
+out/items.txt
